@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Talek School</title>
+  <link rel="stylesheet" href="css/ts.css">
+  <script type="module" src="js/ts.js"></script>
+</head>
+
+<body>
+  <header></header>
+  <div class="main-Content">
+  <main>
+    <div class="payment">
+  </div>
+  </main>
+ 
+  <aside class="aside-payment"></aside>
+</div>
+  <footer class="foot"></footer>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+
+ <style>
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab-btn { 
+  padding: 8px 16px; 
+  border: 1px solid #ccc; 
+  background: #f5f5f5; 
+  cursor: pointer; 
+}
+.tab-btn.active { background: #3b82f6; color: white; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.data-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin: 12px 0 24px; 
+}
+.data-table th, .data-table td { 
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: left; 
+}
+.data-table th { background: #f0f0f0; }
+
+.summary-cards { 
+  display: flex; 
+  gap: 16px; 
+  margin-bottom: 24px; 
+}
+.card { 
+  border: 1px solid #ddd; 
+  padding: 16px; 
+  border-radius: 8px; 
+  flex: 1; 
+}
+.card h4 { margin: 0 0 8px; font-size: 14px; color: #666; }
+.card p { margin: 0; font-size: 20px; font-weight: bold; }
+
+</style> 
+
+</head>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="staff-dashboard">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="work">Work</button>
+    <button class="tab-btn" data-tab="payment">Payment</button>
+  </div>
+
+  <div class="tab-content active" id="work">
+    <h3>Shift Schedule</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Day</th><th>Time</th><th>Status</th><th>Action</th></tr>
+      </thead>
+      <tbody id="shift-body"></tbody>
+    </table>
+
+    <h3>Tasks</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Task</th><th>Due</th><th>Status</th></tr>
+      </thead>
+      <tbody id="task-body"></tbody>
+    </table>
+
+    <h3>Leave Balance: <span id="leave-balance">12</span> days</h3>
+    <button id="request-leave">Request Leave</button>
+  </div>
+
+  <div class="tab-content" id="payment">
+    <div class="summary-cards">
+      <div class="card">
+        <h4>This Month</h4>
+        <p>KSh <span id="month-total">0</span></p>
+      </div>
+      <div class="card">
+        <h4>Pending</h4>
+        <p>KSh <span id="pending-total">0</span></p>
+      </div>
+      <div class="card">
+        <h4>Next Payout</h4>
+        <p id="next-payout">Apr 30</p>
+      </div>
+    </div>
+
+    <h3>Payment History</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Date</th><th>Description</th><th>Amount</th><th>Status</th><th>Action</th></tr>
+      </thead>
+      <tbody id="payment-body"></tbody>
+    </table>
+
+    <h3>Payout Method</h3>
+    <p>Mpesa: <span id="payout-number">0712***789</span></p>
+    <button id="update-payout">Update</button>
+  </div>
+</div>
+<script>
+function initStaffTabs() {
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Load dummy data - replace with real data
+  loadWorkData();
+  loadPaymentData();
+}
+
+function loadWorkData() {
+  const shifts = [
+    { day: 'Mon Apr 28', time: '8:00 - 17:00', status: 'Scheduled' },
+    { day: 'Tue Apr 29', time: '8:00 - 17:00', status: 'Scheduled' }
+  ];
+  
+  const tasks = [
+    { task: 'Stock count - Aisle 3', due: 'Today', status: 'In Progress' },
+    { task: 'Submit expense report', due: 'Apr 30', status: 'Pending' }
+  ];
+
+  document.getElementById('shift-body').innerHTML = shifts.map(s => `
+    <tr>
+      <td>${s.day}</td>
+      <td>${s.time}</td>
+      <td>${s.status}</td>
+      <td><button>Clock In</button></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('task-body').innerHTML = tasks.map(t => `
+    <tr>
+      <td>${t.task}</td>
+      <td>${t.due}</td>
+      <td>${t.status}</td>
+    </tr>
+  `).join('');
+}
+
+function loadPaymentData() {
+  const payments = [
+    { date: '2026-04-15', desc: 'Salary Apr', amount: 35000, status: 'Paid' },
+    { date: '2026-04-10', desc: 'Overtime', amount: 4200, status: 'Pending' }
+  ];
+
+  let monthTotal = 0, pendingTotal = 0;
+  
+  document.getElementById('payment-body').innerHTML = payments.map(p => {
+    if(p.status === 'Paid') monthTotal += p.amount;
+    if(p.status === 'Pending') pendingTotal += p.amount;
+    return `
+      <tr>
+        <td>${p.date}</td>
+        <td>${p.desc}</td>
+        <td>KSh ${p.amount.toLocaleString()}</td>
+        <td>${p.status}</td>
+        <td>${p.status === 'Paid' ? '<button>Download</button>' : '-'}</td>
+      </tr>
+    `;
+  }).join('');
+
+  document.getElementById('month-total').textContent = monthTotal.toLocaleString();
+  document.getElementById('pending-total').textContent = pendingTotal.toLocaleString();
+}
+
+initStaffTabs();
+
+</script> 
+</body>
+</html> -->
+<!--
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work</title>
+  <link rel="stylesheet" href="staff.css">
+</head>
+<body>
+  <div class="staff-dashboard">
+    <nav class="staff-nav">
+      <a href="work.html" class="nav-link active">Work</a>
+      <a href="payment.html" class="nav-link">Payment</a>
+    </nav>
+
+    <div class="tab-content active">
+      <h3>Shift Schedule</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Day</th><th>Time</th><th>Status</th><th>Action</th></tr>
+        </thead>
+        <tbody id="shift-body"></tbody>
+      </table>
+
+      <h3>Tasks</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Task</th><th>Due</th><th>Status</th><th>Action</th></tr>
+        </thead>
+        <tbody id="task-body"></tbody>
+      </table>
+
+      <div class="leave-section">
+        <h3>Leave Balance: <span id="leave-balance">12</span> days</h3>
+        <button id="request-leave">Request Leave</button>
+      </div>
+    </div>
+  </div>
+<style>
+body { font-family: system-ui, sans-serif; padding: 20px; background: #fafafa; }
+.staff-dashboard { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+
+.staff-nav { display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 1px solid #ddd; }
+.nav-link { 
+  padding: 10px 16px; 
+  text-decoration: none; 
+  color: #333; 
+  border-bottom: 2px solid transparent; 
+}
+.nav-link.active { color: #3b82f6; border-bottom-color: #3b82f6; }
+
+.data-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin: 12px 0 24px; 
+}
+.data-table th, .data-table td { 
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  text-align: left; 
+}
+.data-table th { background: #f0f0f0; }
+
+.summary-cards { display: flex; gap: 16px; margin-bottom: 24px; }
+.card { 
+  border: 1px solid #ddd; 
+  padding: 16px; 
+  border-radius: 8px; 
+  flex: 1; 
+}
+.card h4 { margin: 0 0 8px; font-size: 14px; color: #666; }
+.card p { margin: 0; font-size: 20px; font-weight: bold; }
+
+button { 
+  background: #3b82f6; 
+  color: white; 
+  border: none; 
+  padding: 8px 12px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+button:hover { background: #2563eb; }
+.leave-section, .payout-section { margin-top: 32px; }
+
+</style>
+  <script>
+function loadWorkData() {
+  const activeUser = JSON.parse(localStorage.getItem("activeUser")) || {};
+  const shifts = JSON.parse(localStorage.getItem("shifts_" + activeUser.id)) || [
+    { day: 'Mon Apr 28', time: '8:00 - 17:00', status: 'Scheduled' },
+    { day: 'Tue Apr 29', time: '8:00 - 17:00', status: 'Scheduled' }
+  ];
+  
+  const tasks = JSON.parse(localStorage.getItem("tasks_" + activeUser.id)) || [
+    { id: 1, task: 'Stock count - Aisle 3', due: 'Today', status: 'In Progress' },
+    { id: 2, task: 'Submit expense report', due: 'Apr 30', status: 'Pending' }
+  ];
+
+  document.getElementById('shift-body').innerHTML = shifts.map(s => `
+    <tr>
+      <td>${s.day}</td>
+      <td>${s.time}</td>
+      <td>${s.status}</td>
+      <td><button class="clock-btn">Clock In</button></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('task-body').innerHTML = tasks.map(t => `
+    <tr>
+      <td>${t.task}</td>
+      <td>${t.due}</td>
+      <td>${t.status}</td>
+      <td><button class="complete-btn" data-id="${t.id}">Complete</button></td>
+    </tr>
+  `).join('');
+}
+
+loadWorkData();
+
+  </script>
+</body>
+</html> -->

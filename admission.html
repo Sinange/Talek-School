@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talek School</title>
+  <link rel="stylesheet" href="css/ts.css">
+  <script type="module" src="js/ts.js"></script>
+</head>
+
+<body>
+  <header> </header>
+  <div class="main-Content">
+  <main>
+    <div class="admission-info">
+        <h3>Guest Admission Info</h3>
+        <p>Admission fee: Ksh 200 (children)</p>
+        <p>Opening hours: 8am - 5pm (Monday - Sunday)</p>
+        <ul>
+          <li>Accepted payment methods: Cash, Mpesa, Credit/Debit Card</li>
+          <li>Facilities:
+            <ul>
+              <li>Parking</li>
+              <li>Restrooms</li>
+              <li>Food and drinks available</li>
+            </ul>
+          </li>
+          <li>Rules:
+            <ul>
+              <li>No outside food or drinks allowed</li>
+              <li>No pets allowed</li>
+              <li>No smoking</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h3>Student Admission Info</h3>
+        <p>Admission requirements:</p>
+        <ul>
+          <li>Copy of birth certificate</li>
+          <li>Copy of KCPE certificate</li>
+          <li>Two passport-size photos</li>
+          <li>Registration fee: Ksh 1,000</li>
+        </ul>
+        <p>Tuition fees:</p>
+        <ul>
+          <li>Ksh 5,000 per term (day student)</li>
+          <li>Ksh 10,000 per term (boarding student)</li>
+        </ul>
+        <p>Payment methods:</p>
+        <ul>
+          <li>Mpesa</li>
+          <li>Bank deposit</li>
+          <li>Credit/Debit Card</li>
+        </ul>
+        
+        <h3>International Student Admission Info</h3>
+        <p>Admission requirements:</p>
+        <ul>
+          <li>Copy of passport</li>
+          <li>Copy of academic certificates</li>
+          <li>English language proficiency test (e.g. TOEFL, IELTS)</li>
+          <li>Registration fee:Kshs 5000</li>
+        </ul>
+        <p>Tuition fees:</p>
+        <ul>
+          <li>5,000 per term (day student)</li>
+          <li>12,000 per term (boarding student)</li>
+        </ul>
+        <p>Payment methods:</p>
+        <ul>
+          <li>Bank transfer</li>
+          <li>Credit/Debit Card</li>
+        </ul>
+        
+        <h3>Scholarship Info</h3>
+        <p>Available scholarships:</p>
+        <ul>
+          <li>Merit-based scholarships</li>
+          <li>Need-based scholarships</li>
+          <li>Sports scholarships</li>
+        </ul>
+        <p>Application requirements:</p>
+        <ul>
+          <li>Application form</li>
+          <li>Academic transcripts</li>
+          <li>Recommendation letters</li>
+          <li>Application for Job or Admission: <a href="#applyJob" id="job" target="_parent"  rel="noopener noreferrer" >Apply Now</a></li>
+         
+        </ul>
+        <p>Deadline: March31<sup>st</sup></p>
+    </div>
+    <div id="applyJob"class="main-job">
+        <div class="tabl">
+            <button class="tablinks"> Apply for Job</button>
+            <button class="tablinks">Student Admission</button>
+            <img src="images/x.svg" alt="close"  class="tablinks">
+        </div>
+        <div class="tab-c">
+             <div class="tab-content">
+                    <h3>Apply for a Job</h3>
+                    <hr>
+                    <form action="" autocomplete="on" enctype="multipart/form-data" id="form-job" method="post"> 
+                    <label class="error-username" for="username">Name
+                    <input type="text" autocomplete="on" placeholder="Eg.Brian Sinange" name="username" id="username" required> 
+                    </label>
+                    </label>
+                    <label id="st"  class="error-select" for="workingstaff">Select the job 
+                    <select name="workingstaff"  autocomplete="on" id="workingstaff">
+                    <option value="matron">Matron</option>
+                    <option value="patron">Patron</option>
+                    <option value="cook">Cook</option>
+                    <option value="watchMan">WatchMan</option>
+                    <option value="watchMan">Teacher</option>
+                    <option value="driver">Driver</option>
+                    <option value="cleaner">Cleaner</option>
+                    </select>
+                    </label>
+                    <label class="error-phone" for="number">Phone Number
+                    <input type="tel" autocomplete="on" placeholder="0712345678"name="phone" id="number" required>
+                    </label>
+                    <label class="error-id" for="id">ID-card Number
+                        <input type="number" autocomplete="on" name="id" placeholder="12345678" id="id" required>
+                        </label>
+                    <label  class="error-email" for="email">Email
+                    <input type="email" autocomplete="on" placeholder="123@gmail.com" name="email" id="email" required>
+                    </label> 
+                    <label class="error-file" for="file">Passport photo :Choose an image(.png/.jpg)
+                        <input type="file"  name="file"   id="file" required>
+                        </label>
+                    <input type="submit" value="Apply" id="apply">
+                    <p id="main-job-error"></p> 
+                    </form>
+                    </div>
+                    <div class="tab-content">
+                    <h3>Apply for Student admission</h3>
+                    <hr>
+                    <form action="" enctype="multipart/form-data" autocomplete="on" id="form-admission" method="post"> 
+                    <label class="error-username" for="username"  >Name
+                    <input type="text" autocomplete="on" placeholder="Eg.Brian Sinange" name="username" id="username" required> 
+                    </label>
+                    </label>
+
+                        <label id="st"   class="error-select" for="grade">Select the grade 
+                        <select name="grade"  autocomplete="on" id="grade">
+                        <option value="pp1">pp1</option>
+                        <option value="pp2">pp2</option>
+                        <option value="grade1">Grade1</option>
+                        <option value="grade2">Grade2</option>
+                        <option value="grade3">Grade3</option>
+                        <option value="grade4">Grade4</option>
+                        <option value="grade5">Grade4</option>
+                        <option value="grade6">Grade6</option>
+                        <option value="grade7">Grade7</option>
+                        <option value="grade8">Grade8</option>
+                        <option value="grade9">Grade9</option>
+                        </select>
+                        </label>
+                    <label class="error-phone" for="number"> Phone Number
+                        <input type="tel" autocomplete="on" placeholder="0712345678" name="number" id="number" required>
+                        </label>
+                        <label class="error-id" for="id">ID-card Number
+                            <input type="number" autocomplete="on" name="number" placeholder="12345678" id="id" required>
+                            </label>
+                        <label  class="error-email" for="email">Email
+                        <input type="email"  autocomplete="on" placeholder="123@gmail.com"name="email" id="email" required>
+                        </label> 
+                            <label class="error-file" for="file">Passport photo :Choose an image(.png/.jpg)
+                                <input type="file" name="file"  id="file" required>
+                                </label>
+                        <input type="submit" value="Apply" id="apply">
+                    
+                        <!-- <p>Already have an Account?<a class="AR" href="#">login In</a></p>-->
+                    <p id="main-admission-error"></p> 
+                    </form>
+                    </div>
+            </div>
+ </div> 
+  </main>
+  <aside class="aside-content"></aside>
+</div>
+  <footer class="foot"></footer>
+ 
+</body>
+
+</html>
