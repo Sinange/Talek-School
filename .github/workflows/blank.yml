@@ -1,0 +1,25 @@
+name: Unzip My Project
+on:
+  workflow_dispatch: # This allows you to run it manually with a button click
+
+jobs:
+  unzip-files:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unpack ZIP
+        run: |
+          unzip *.zip              # Extracts the contents of your zip file
+          rm *.zip                 # Deletes the original zip so it stays clean
+          
+      - name: Commit unzipped files
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Automatically unzipped project files" || echo "No changes to commit"
+          git push origin main
