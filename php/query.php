@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
     $date = date("d-m-y H-m-s");
     $array = [$date, $name, $email, $feedback];
     $stringData = implode(",", $array).PHP_EOL;
-    $directory = "../feeback/";
+    $directory = "/tmp/feeback/";
   if(!is_dir($directory)) {
         mkdir($directory, 0777);
     }
