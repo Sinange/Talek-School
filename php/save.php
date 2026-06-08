@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_FILES['file'])){
     $card= isset($_POST['card']) ? $_POST['card'] : "N/A";
     $workingStaff= isset($_POST['workingStaff']) ? $_POST['workingStaff'] : "N?A";
     $email= isset($_POST['email']) ? $_POST['email'] : "N/A";
-    $uploadDirectory = "../uploads/";
+    $uploadDirectory = "/tmp/uploads/";
     if(!is_dir($uploadDirectory)){
         mkdir($uploadDirectory,0777,true); }
     $array = (object)["name"=>$name, 'filename'=>$filename, "card"=>$card, "phone"=>$phone,"job"=>$workingStaff,"email"=>$email];
