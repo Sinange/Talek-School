@@ -3188,7 +3188,7 @@ if(idCard.trim().length<6){
    
 // console.log(file,file.size,file.type);
 const submitFile =async()=>{
-  await fetch("/TALEK%20SCHOOL/php/save.php",{
+  await fetch("./php/save.php",{
     method:"POST",
     body:formData
   }).then(res=>res.json()).then(data=>{
@@ -3282,7 +3282,7 @@ formAdmission.insertBefore(error,errorId);
  
 // console.log(file,file.size,file.type);
 const submitFile =async()=>{
-await fetch("/TALEK%20SCHOOL/php/save.php",{
+await fetch("./php/save.php",{
   method:"POST",
   body:formData
 }).then(res=>res.json()).then(data=>{
@@ -3352,7 +3352,7 @@ if(feed.trim().length <6){
   form.append("feedback",feed)
   console.log(form);
  const  sendQuery=async()=>{
-  await fetch("/TALEK%20SCHOOL/php/query.php",{
+  await fetch("./php/query.php",{
   method:"POST",
   body:form,
   }).then(response=> response.json())
