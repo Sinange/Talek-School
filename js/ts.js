@@ -1367,7 +1367,7 @@ function updateContent(value,details){
          <tr> 
        <td>${detail}</td>
      <td>${subject.username}</td>`;
-          inner+=`<td>${!isAssigned?`<button class="editButton" data-username="${subject.username}">Assign</button>`
+          inner+=`<td>${!isAssigned?`<button class="editButton assign" data-username="${subject.username}">Assign</button>`
           :`<button class="deleteButton" data-username="${subject.username}">Delete</button>`}</td>
           </tr>`; 
     
