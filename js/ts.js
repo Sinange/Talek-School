@@ -4249,7 +4249,7 @@ onload=()=>{
   }else{
     updateAsidebar("guest",size);
     academicSetUp("guest");
-   let  welcome=["Welcome to Talek School","When we are together things stand Out","School Motto is Strive to excel"];
+   let  welcome=["Welcome to Talek School","School Motto is Strive to excel"];
     updateText(welcome);
     showDownloadData("Mathematics");
    opentab();
