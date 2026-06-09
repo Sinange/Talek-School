@@ -173,6 +173,7 @@ function updateAsidebar(role,isSmall=false){
         <li><a href="grade.html?detail=${gradeClass}">StudentList</a></li>
         <li><a href="assignments.html?value=assessments&detail=${gradeClass}">GradeList</a></li>
         <li><a href="reports.html">Reports</a></li>
+         <li><a href="announcements.html">AnnounceMent</a></li>
         <li><a href="homework.html">Assignments</a></li>
         <li><a href="download.html">Resources</a></li>
         ${login}
@@ -1367,7 +1368,7 @@ function updateContent(value,details){
          <tr> 
        <td>${detail}</td>
      <td>${subject.username}</td>`;
-          inner+=`<td>${!isAssigned?`<button class="editButton assign" data-username="${subject.username}">Assign</button>`
+          inner+=`<td>${!isAssigned?`<button class="editButton" data-username="${subject.username}">Assign</button>`
           :`<button class="deleteButton" data-username="${subject.username}">Delete</button>`}</td>
           </tr>`; 
     
@@ -1379,7 +1380,7 @@ inner+=`
 </div>`
 cointainer.innerHTML=inner;
 const assigned=document.querySelector('.assign');
-if(assigned && roles==='admin'){
+if(assigned && roles.roles==='admin'){
 assigned.addEventListener("click",(event)=>{
 location.href='login.html';
 showRegistration();
